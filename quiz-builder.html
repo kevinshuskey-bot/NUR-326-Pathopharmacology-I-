@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Build Your Own Exam &mdash; NUR 326-201</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="title">Pathopharmacology</span>
+      <span class="subtitle">NUR 326-201 &middot; STUDY GUIDE</span>
+    </a>
+    <nav class="navmid" aria-label="Primary">
+      <a class="navlink " href="index.html">Home</a>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 1 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <a href="week1-antimicrobial-principles.html">Antimicrobial Principles</a>
+          <a href="week1-cell-wall-agents.html">Beta-Lactams &amp; Vancomycin</a>
+          <a href="week1-protein-dna-synthesis.html">Protein/DNA/Folate Inhibitors</a>
+          <a href="week1-antivirals.html">Antiviral Pharmacology</a>
+          <a href="week1-hiv.html">HIV: Patho &amp; Pharmacology</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 2 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 3 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 4 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 5 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 6 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 7 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Exam Prep <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <a href="exam-hints.html">Must Know Quick Reference</a>
+          <a href="quiz-builder.html">Build Your Own Exam</a>
+          <a href="torture-chamber.html">The Torture Chamber</a>
+        </div>
+      </div>
+    </nav>
+    <div class="navtools">
+      <button class="icon-btn" id="search-toggle" aria-label="Search" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" id="dark-toggle" aria-label="Toggle dark mode" type="button"></button>
+    </div>
+  </div>
+</header>
+
+<main id="content">
+  <div class="shell-narrow">
+    <div class="page-head">
+      <div class="crumb"><a href="index.html">Exam Prep</a> / Quiz Builder</div>
+      <h1>Build Your Own Exam</h1>
+      <p>Pick any combination of Week 1 topics, choose how many questions, and generate a custom practice quiz.</p>
+    </div>
+
+    <section class="section">
+      <h2>Choose topics</h2>
+      <div class="topic-picker" id="topic-picker">
+        <label><input type="checkbox" value="principles" checked> Antimicrobial Principles</label>
+        <label><input type="checkbox" value="cellwall" checked> Beta-Lactams &amp; Vancomycin</label>
+        <label><input type="checkbox" value="protein" checked> Protein/DNA/Folate Inhibitors</label>
+        <label><input type="checkbox" value="antivirals" checked> Antivirals</label>
+        <label><input type="checkbox" value="hiv" checked> HIV</label>
+      </div>
+
+      <div class="qb-controls">
+        <label for="qcount">Number of questions:</label>
+        <select id="qcount">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="15">15</option>
+          <option value="9999">All available</option>
+        </select>
+        <button class="btn" id="generate-btn">Generate quiz</button>
+      </div>
+
+      <div id="quiz-area"></div>
+    </section>
+
+    <nav class="page-nav" aria-label="Topic navigation">
+      <a class="prev" href="exam-hints.html"><span class="dir">&larr; Previous</span>Must Know Quick Reference</a>
+      <a class="next" href="torture-chamber.html"><span class="dir">Next &rarr;</span>The Torture Chamber</a>
+    </nav>
+  </div>
+
+  <footer class="site-footer">
+    <div class="shell">Built from the NUR 326-201 lecture material &mdash; for personal study use.</div>
+  </footer>
+</main>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search the study guide..." autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<script src="nav.js"></script>
+<script src="quiz-data.js"></script>
+<script>
+function shuffle(arr){
+  const a = arr.slice();
+  for(let i=a.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
+let score = 0, answered = 0, total = 0;
+
+function renderQuiz(questions){
+  const area = document.getElementById('quiz-area');
+  score = 0; answered = 0; total = questions.length;
+  if(questions.length === 0){
+    area.innerHTML = '<p class="empty-note">No questions match those topics. Try selecting at least one.</p>';
+    return;
+  }
+  let html = '<div id="quiz-score">Score: 0 / ' + total + '</div>';
+  questions.forEach((item, idx) => {
+    html += '<div class="q-card" data-qidx="'+idx+'">';
+    html += '<div class="q-num">Question '+(idx+1)+' of '+total+'</div>';
+    html += '<div class="q-prompt">'+item.q+'</div>';
+    item.options.forEach((opt, oidx) => {
+      html += '<button type="button" class="opt" data-oidx="'+oidx+'">'+opt+'</button>';
+    });
+    html += '<div class="explain" id="explain-'+idx+'">'+item.explain+'</div>';
+    html += '</div>';
+  });
+  area.innerHTML = html;
+
+  questions.forEach((item, idx) => {
+    const card = area.querySelector('[data-qidx="'+idx+'"]');
+    const buttons = card.querySelectorAll('.opt');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        if(card.dataset.answered) return;
+        card.dataset.answered = "1";
+        answered++;
+        const chosen = parseInt(btn.dataset.oidx, 10);
+        buttons.forEach((b,i) => {
+          if(i === item.correct) b.classList.add('correct');
+          else if(i === chosen) b.classList.add('incorrect');
+        });
+        if(chosen === item.correct) score++;
+        document.getElementById('explain-'+idx).classList.add('shown');
+        document.getElementById('quiz-score').textContent = 'Score: '+score+' / '+total+'  ('+answered+' answered)';
+      });
+    });
+  });
+}
+
+document.getElementById('generate-btn').addEventListener('click', () => {
+  const checked = Array.from(document.querySelectorAll('#topic-picker input:checked')).map(cb => cb.value);
+  const count = parseInt(document.getElementById('qcount').value, 10);
+  const pool = QUESTION_BANK.filter(q => checked.includes(q.topic));
+  const chosen = shuffle(pool).slice(0, count);
+  renderQuiz(chosen);
+  document.getElementById('quiz-area').scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+document.getElementById('generate-btn').click();
+</script>
+</body>
+</html>

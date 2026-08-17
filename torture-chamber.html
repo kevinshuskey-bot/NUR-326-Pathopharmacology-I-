@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Torture Chamber &mdash; NUR 326-201</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="title">Pathopharmacology</span>
+      <span class="subtitle">NUR 326-201 &middot; STUDY GUIDE</span>
+    </a>
+    <nav class="navmid" aria-label="Primary">
+      <a class="navlink " href="index.html">Home</a>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 1 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <a href="week1-antimicrobial-principles.html">Antimicrobial Principles</a>
+          <a href="week1-cell-wall-agents.html">Beta-Lactams &amp; Vancomycin</a>
+          <a href="week1-protein-dna-synthesis.html">Protein/DNA/Folate Inhibitors</a>
+          <a href="week1-antivirals.html">Antiviral Pharmacology</a>
+          <a href="week1-hiv.html">HIV: Patho &amp; Pharmacology</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 2 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 3 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 4 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 5 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 6 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Week 7 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <span class="dd-empty">Not yet posted</span>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navlink" type="button">Exam Prep <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
+        <div class="dropdown-panel">
+          <a href="exam-hints.html">Must Know Quick Reference</a>
+          <a href="quiz-builder.html">Build Your Own Exam</a>
+          <a href="torture-chamber.html">The Torture Chamber</a>
+        </div>
+      </div>
+    </nav>
+    <div class="navtools">
+      <button class="icon-btn" id="search-toggle" aria-label="Search" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <button class="icon-btn" id="dark-toggle" aria-label="Toggle dark mode" type="button"></button>
+    </div>
+  </div>
+</header>
+
+<main id="content">
+  <div class="shell-narrow">
+    <div class="page-head">
+      <div class="crumb"><a href="index.html">Exam Prep</a> / Torture Chamber</div>
+      <h1>The Torture Chamber</h1>
+      <p>The trickiest, most easily-confused pairs from Week 1 &mdash; the ones designed to catch you if you've only half-learned the material. Enter if you dare.</p>
+    </div>
+
+    <div id="chamber-score">Score: 0 / 0</div>
+    <div id="chamber-area"></div>
+
+    <nav class="page-nav" aria-label="Topic navigation">
+      <a class="prev" href="quiz-builder.html"><span class="dir">&larr; Previous</span>Build Your Own Exam</a>
+      <a class="next" href="index.html"><span class="dir">Back to</span>Home</a>
+    </nav>
+  </div>
+
+  <footer class="site-footer">
+    <div class="shell">Built from the NUR 326-201 lecture material &mdash; for personal study use.</div>
+  </footer>
+</main>
+
+<div class="search-overlay" id="search-overlay">
+  <div class="search-box">
+    <input type="text" id="search-input" placeholder="Search the study guide..." autocomplete="off">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</div>
+<script src="nav.js"></script>
+<script src="quiz-data.js"></script>
+<script>
+const tortureQs = QUESTION_BANK.filter(q => q.torture === true);
+let score = 0, total = tortureQs.length;
+document.getElementById('chamber-score').textContent = 'Score: 0 / ' + total;
+
+const area = document.getElementById('chamber-area');
+let html = '';
+tortureQs.forEach((item, idx) => {
+  html += '<div class="q-card" data-qidx="'+idx+'">';
+  html += '<div class="q-num">Trap '+(idx+1)+' of '+total+'</div>';
+  html += '<div class="q-prompt">'+item.q+'</div>';
+  item.options.forEach((opt, oidx) => {
+    html += '<button type="button" class="opt" data-oidx="'+oidx+'">'+opt+'</button>';
+  });
+  html += '<div class="explain" id="ex-'+idx+'">'+item.explain+'</div>';
+  html += '</div>';
+});
+area.innerHTML = html;
+
+tortureQs.forEach((item, idx) => {
+  const card = area.querySelector('[data-qidx="'+idx+'"]');
+  const buttons = card.querySelectorAll('.opt');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if(card.dataset.answered) return;
+      card.dataset.answered = "1";
+      const chosen = parseInt(btn.dataset.oidx, 10);
+      buttons.forEach((b,i) => {
+        if(i === item.correct) b.classList.add('correct');
+        else if(i === chosen) b.classList.add('incorrect');
+      });
+      if(chosen === item.correct) score++;
+      document.getElementById('ex-'+idx).classList.add('shown');
+      document.getElementById('chamber-score').textContent = 'Score: '+score+' / '+total;
+    });
+  });
+});
+</script>
+</body>
+</html>
