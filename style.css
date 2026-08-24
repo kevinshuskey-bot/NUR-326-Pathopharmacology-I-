@@ -1,42 +1,45 @@
 /* NUR 326-201 Pathopharmacology I — Study Guide
-   Matches reference: dark indigo navbar w/ dropdowns, serif display type,
-   lavender page background, white number-badge cards. */
+   Dark navy hero header w/ amber accent, cream page background,
+   olive-green section accents, serif display type. */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap');
 
 :root{
-  --navy: #241c40;
-  --navy-soft: #342a58;
-  --bg: #f3f1f8;
+  --navy: #0f1a2e;
+  --navy-soft: #1b2740;
+  --bg: #f6f1e6;
   --card: #ffffff;
-  --ink: #241c40;
-  --ink-soft: #5c5670;
-  --ink-faint: #8b859b;
-  --line: #e3dff0;
-  --badge-bg: #e9e3f7;
-  --badge-text: #4b3b8f;
-  --week-badge: #342a63;
-  --accent: #4b3b8f;
+  --ink: #1c2a3a;
+  --ink-soft: #625c50;
+  --ink-faint: #948d7d;
+  --line: #e4ddc9;
+  --line-strong: #d3c9ac;
+  --badge-bg: #e8e9d9;
+  --badge-text: #4a6741;
+  --week-badge: #1c2a3a;
+  --accent: #4a6741;
+  --amber: #c17d2e;
   --danger: #a3402e;
-  --shadow: 0 1px 2px rgba(36,28,64,.05), 0 4px 14px rgba(36,28,64,.06);
+  --shadow: 0 1px 2px rgba(28,42,58,.05), 0 4px 14px rgba(28,42,58,.07);
   --radius: 12px;
   --serif: 'Playfair Display', Georgia, serif;
   --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 html.dark{
-  --navy: #1a1530;
-  --navy-soft: #241c40;
-  --bg: #171223;
-  --card: #211a35;
-  --ink: #eeeaf8;
-  --ink-soft: #b3aac8;
-  --ink-faint: #857e9c;
-  --line: #34294f;
-  --badge-bg: #2f2650;
-  --badge-text: #c3b6f2;
-  --week-badge: #4b3b8f;
-  --accent: #a89bf0;
+  --navy: #0a1220;
+  --navy-soft: #16223a;
+  --bg: #161a17;
+  --card: #20241f;
+  --ink: #ece7db;
+  --ink-soft: #b3ac9c;
+  --ink-faint: #847e70;
+  --line: #34382e;
+  --badge-bg: #2a3226;
+  --badge-text: #9dc190;
+  --week-badge: #4a6741;
+  --accent: #9dc190;
+  --amber: #e0a252;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 18px rgba(0,0,0,.35);
 }
 
@@ -50,29 +53,31 @@ body{
 }
 a{color:inherit; text-decoration:none;}
 img{max-width:100%;}
-:focus-visible{outline:2px solid var(--accent); outline-offset:2px;}
+:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
 
-.skip-link{position:absolute; left:-9999px; top:0; background:var(--accent); color:#fff; padding:10px 16px; z-index:300;}
+.skip-link{position:absolute; left:-9999px; top:0; background:var(--amber); color:#fff; padding:10px 16px; z-index:300;}
 .skip-link:focus{left:12px; top:12px;}
 
-/* ---------- navbar ---------- */
-.topbar{background:var(--navy); position:sticky; top:0; z-index:100; box-shadow:0 2px 12px rgba(0,0,0,.12);}
-.topbar-inner{
-  max-width:1320px; margin:0 auto; padding:14px 32px;
+/* ---------- navbar: hero block + nav row ---------- */
+.topbar{background:var(--navy); position:sticky; top:0; z-index:100; border-bottom:4px solid var(--amber);}
+.topbar-hero{max-width:1320px; margin:0 auto; padding:22px 32px 14px; display:flex; flex-direction:column; gap:4px;}
+.hero-eyebrow{font-family:var(--sans); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); font-weight:700;}
+.hero-title{font-family:var(--serif); font-weight:700; font-size:clamp(24px,3vw,32px); color:#fff;}
+
+.topbar-nav{border-top:1px solid rgba(255,255,255,.08);}
+.topbar-nav-inner{
+  max-width:1320px; margin:0 auto; padding:6px 32px;
   display:flex; align-items:center; justify-content:space-between; gap:24px;
 }
-.brand{display:flex; flex-direction:column; line-height:1.15;}
-.brand .title{font-family:var(--serif); font-weight:700; font-size:22px; color:#fff;}
-.brand .subtitle{font-family:var(--sans); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#9d94c0; margin-top:2px;}
 
-.navmid{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+.navmid{display:flex; align-items:center; gap:4px; flex-wrap:wrap;}
 .navlink{
-  font-family:var(--sans); font-size:14.5px; font-weight:600; color:#cfc8e8;
-  padding:9px 12px; border-radius:8px; position:relative; display:flex; align-items:center; gap:5px;
-  cursor:pointer; background:none; border:none;
+  font-family:var(--sans); font-size:14px; font-weight:600; color:#c7c2b3;
+  padding:10px 11px; position:relative; display:flex; align-items:center; gap:5px;
+  cursor:pointer; background:none; border:none; border-bottom:2px solid transparent;
 }
-.navlink:hover, .navlink.current{color:#fff; background:rgba(255,255,255,.08);}
-.navlink.current{box-shadow:inset 0 -2px 0 #fff;}
+.navlink:hover{color:#fff;}
+.navlink.current{color:var(--amber); border-bottom-color:var(--amber);}
 .navlink svg{width:11px; height:11px; opacity:.8;}
 
 .dropdown{position:relative;}
@@ -259,7 +264,45 @@ footer.site-footer{border-top:1px solid var(--line); padding:26px 0 40px; margin
 #quiz-score, #chamber-score{font-family:var(--serif); font-weight:700; font-size:17px; margin:16px 0;}
 .empty-note{color:var(--ink-faint); font-style:italic; font-size:14.5px;}
 
+/* ---------- NGN case studies ---------- */
+.ngn-case{border:1px solid var(--line); border-radius:12px; background:var(--card); box-shadow:var(--shadow); margin:24px 0 40px; overflow:hidden;}
+.ngn-case-head{padding:18px 22px; border-bottom:1px solid var(--line); background:var(--badge-bg);}
+.ngn-case-head h3{font-family:var(--serif); font-size:18px; margin:0; color:var(--ink);}
+.ngn-tabs{display:flex; gap:2px; border-bottom:1px solid var(--line); background:var(--bg);}
+.ngn-tab{flex:1; padding:11px 14px; font-size:13px; font-weight:600; text-align:center; cursor:pointer; color:var(--ink-soft); border-bottom:2px solid transparent;}
+.ngn-tab.active{color:var(--accent); border-bottom-color:var(--accent); background:var(--card);}
+.ngn-panel{display:none; padding:20px 22px;}
+.ngn-panel.active{display:block;}
+.chart-table{width:100%; border-collapse:collapse; font-size:13.5px;}
+.chart-table td{padding:10px 12px; border-bottom:1px solid var(--line); vertical-align:top;}
+.chart-table td:first-child{font-weight:700; width:28%; color:var(--ink-soft); font-size:12px; text-transform:uppercase; letter-spacing:.03em;}
+.chart-table td:last-child{white-space:pre-line;}
+
+.cloze-sentence{font-family:var(--serif); font-size:17px; line-height:1.9; margin:6px 0 20px;}
+.cloze-select{
+  font-family:var(--sans); font-size:15px; font-weight:600; color:var(--accent);
+  border:none; border-bottom:2px solid var(--accent); background:var(--badge-bg);
+  border-radius:6px 6px 0 0; padding:4px 8px; margin:0 3px;
+}
+.cloze-select.correct{background:rgba(47,143,91,.15); border-color:#2f8f5b; color:#2f8f5b;}
+.cloze-select.incorrect{background:rgba(163,64,46,.12); border-color:var(--danger); color:var(--danger);}
+
+.ngn-select-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px; margin:16px 0;}
+@media (max-width:800px){.ngn-select-grid{grid-template-columns:1fr;}}
+.ngn-col h4{font-size:13px; text-transform:uppercase; letter-spacing:.04em; color:var(--ink-faint); margin:0 0 10px; font-weight:700;}
+.ngn-option{display:flex; align-items:flex-start; gap:8px; padding:9px 10px; border:1px solid var(--line); border-radius:7px; margin-bottom:7px; font-size:13.5px; cursor:pointer; background:var(--card);}
+.ngn-option input{margin-top:2px; flex:none;}
+.ngn-option:hover{border-color:var(--accent);}
+.ngn-option.correct{border-color:#2f8f5b; background:rgba(47,143,91,.12);}
+.ngn-option.missed{border-color:#2f8f5b; background:rgba(47,143,91,.05); box-shadow:inset 0 0 0 1px #2f8f5b;}
+.ngn-option.incorrect{border-color:var(--danger); background:rgba(163,64,46,.1);}
+
+.ngn-rationale{display:none; margin-top:18px; background:var(--bg); border-radius:8px; padding:16px 18px; font-size:14px; color:var(--ink-soft); border:1px solid var(--line);}
+.ngn-rationale.shown{display:block;}
+.ngn-rationale strong{color:var(--ink);}
+
 @media (max-width:900px){
   .navmid{display:none;}
-  .topbar-inner{padding:14px 20px;}
+  .topbar-hero{padding:18px 20px 10px;}
+  .topbar-nav-inner{padding:6px 20px;}
 }
