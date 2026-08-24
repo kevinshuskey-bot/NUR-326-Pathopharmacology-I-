@@ -1,117 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NGN Case Studies &mdash; Week 1 &mdash; NUR 326-201</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<a class="skip-link" href="#content">Skip to content</a>
+// Shared NGN case-study blocks + interaction logic.
+// Used by week1-ngn-cases.html (standalone) and quiz-builder.html (embedded in a custom exam).
 
-<header class="topbar">
-  <div class="topbar-hero">
-    <span class="hero-eyebrow">NUR 326-201 &middot; STUDY GUIDE</span>
-    <a class="hero-title" href="index.html">Pathopharmacology</a>
-  </div>
-  <div class="topbar-nav">
-    <div class="topbar-nav-inner">
-      <nav class="navmid" aria-label="Primary">
-        <a class="navlink " href="index.html">Home</a>
-      <div class="dropdown">
-        <button class="navlink" type="button">Week 1 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <a href="week1-antimicrobial-principles.html">Antimicrobial Principles</a>
-          <a href="week1-cell-wall-agents.html">Beta-Lactams &amp; Vancomycin</a>
-          <a href="week1-protein-dna-synthesis.html">Protein/DNA/Folate Inhibitors</a>
-          <a href="week1-antivirals.html">Antiviral Pharmacology</a>
-          <a href="week1-hiv.html">HIV: Patho &amp; Pharmacology</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="navlink" type="button">Week 2 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <span class="dd-empty">Not yet posted</span>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="navlink" type="button">Week 3 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <span class="dd-empty">Not yet posted</span>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="navlink" type="button">Week 4 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <span class="dd-empty">Not yet posted</span>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="navlink" type="button">Week 5 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <span class="dd-empty">Not yet posted</span>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="navlink" type="button">Week 6 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <span class="dd-empty">Not yet posted</span>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="navlink" type="button">Week 7 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <span class="dd-empty">Not yet posted</span>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="navlink" type="button">Exam Prep <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <a href="exam-hints.html">Must Know Quick Reference</a>
-          <a href="quiz-builder.html">Build Your Own Exam</a>
-          <a href="torture-chamber.html">The Torture Chamber</a>
-          <a href="week1-ngn-cases.html">NGN Case Studies (Week 1)</a>
-        </div>
-      </div>
-      <div class="dropdown">
-        <button class="navlink" type="button">Patho Review <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg></button>
-        <div class="dropdown-panel">
-          <a href="intro-patho-review.html">Review Home</a>
-          <a href="patho-pharm-foundations.html">Pharmacology Foundations</a>
-          <a href="patho-cellular-infection-immunity.html">Cellular Adaptation, Infection &amp; Immunity</a>
-          <a href="patho-cardiovascular.html">Hypertension &amp; Hyperlipidemia</a>
-          <a href="patho-diabetes-metabolic.html">Diabetes &amp; Metabolic Syndrome</a>
-          <a href="patho-coagulation-dvt.html">Coagulation &amp; DVT</a>
-          <a href="patho-blood-cbc.html">Blood Cells &amp; CBC Interpretation</a>
-          <a href="patho-fluid-electrolyte.html">Fluid &amp; Electrolytes</a>
-          <a href="patho-pain-seizures.html">Pain &amp; Seizures</a>
-          <a href="patho-neuro-psych.html">Dementia, Depression &amp; SUD</a>
-          <a href="patho-gi-gu-skin.html">GI, GU, Skin &amp; Hypersensitivity</a>
-          <a href="patho-review-quiz.html">NCLEX-Style Practice Exam</a>
-        </div>
-      </div>
-      </nav>
-      <div class="navtools">
-        <button class="icon-btn" id="search-toggle" aria-label="Search" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.3-4.3"/></svg>
-        </button>
-        <button class="icon-btn" id="dark-toggle" aria-label="Toggle dark mode" type="button"></button>
-      </div>
-    </div>
-  </div>
-</header>
-
-<main id="content">
-  <div class="shell-narrow">
-    <div class="page-head">
-      <div class="crumb"><a href="index.html">Week 1</a> / NGN Case Studies</div>
-      <h1>NGN Case Studies</h1>
-      <p>Three Next Generation NCLEX&ndash;style clinical case studies covering antitubercular therapy, herpes zoster, and vaginal candidiasis &mdash; adapted from the Sherpath EAQ/NGN study set (Lilley, <em>Pharmacology and the Nursing Process</em>, 10th ed.).</p>
-    </div>
-
-    <!-- ============ CASE 1 ============ -->
+const NGN_CASES = [
+{
+  id: "case1",
+  html: `
     <div class="ngn-case" id="case1">
-      <div class="ngn-case-head"><h3>Case 1 &middot; Active Tuberculosis</h3></div>
+      <div class="ngn-case-head"><h3>NGN Case &middot; Active Tuberculosis</h3></div>
       <div class="ngn-tabs">
         <div class="ngn-tab active" data-target="c1-chart">Patient Chart</div>
         <div class="ngn-tab" data-target="c1-question">NGN Question</div>
@@ -147,11 +42,13 @@
           Isoniazid, rifampin, and pyrazinamide all place the client at risk for drug-induced hepatotoxicity. Alcohol causes liver inflammation and compounds hepatocellular injury when combined with these agents. Citrus foods don't interact with antitubercular therapy. Red/rust-colored bodily fluids (tears, sweat, urine) are a harmless, expected effect of rifampin and don't require a medication change.
         </div>
       </div>
-    </div>
-
-    <!-- ============ CASE 2 ============ -->
+    </div>`
+},
+{
+  id: "case2",
+  html: `
     <div class="ngn-case" id="case2">
-      <div class="ngn-case-head"><h3>Case 2 &middot; Herpes Zoster (Shingles)</h3></div>
+      <div class="ngn-case-head"><h3>NGN Case &middot; Herpes Zoster (Shingles)</h3></div>
       <div class="ngn-tabs">
         <div class="ngn-tab active" data-target="c2-chart">Patient Chart</div>
         <div class="ngn-tab" data-target="c2-question">NGN Question</div>
@@ -194,11 +91,13 @@
           Herpes zoster (shingles) results from reactivation of dormant varicella-zoster virus in dorsal root ganglia &mdash; burning/itching prodrome followed by a unilateral, painful, dermatomal vesicular rash. Oral acyclovir is standard therapy. Acyclovir is renally eliminated, so a renal impairment history must be assessed to avoid drug accumulation/neurotoxicity. Ongoing pain assessment matters since acute neuralgia is common. Take acyclovir with meals to reduce GI upset, and report neuropathy/neurotoxicity symptoms (tremors, tingling, confusion) right away.
         </div>
       </div>
-    </div>
-
-    <!-- ============ CASE 3 ============ -->
+    </div>`
+},
+{
+  id: "case3",
+  html: `
     <div class="ngn-case" id="case3">
-      <div class="ngn-case-head"><h3>Case 3 &middot; Vaginal Candidiasis</h3></div>
+      <div class="ngn-case-head"><h3>NGN Case &middot; Vaginal Candidiasis</h3></div>
       <div class="ngn-tabs">
         <div class="ngn-tab active" data-target="c3-chart">Patient Chart</div>
         <div class="ngn-tab" data-target="c3-question">NGN Question</div>
@@ -241,29 +140,45 @@
           Vaginal candidiasis is a common superinfection following systemic antibiotic therapy, since normal protective vaginal flora is eliminated. Fluconazole (single 150 mg oral dose) is the azole antifungal of choice. Verify azole allergy history and screen for pregnancy (teratogenic risk) before giving it. Teach the client to take it with food to reduce nausea, and to report signs of hepatotoxicity (jaundice, dark urine, pale stools, fatigue). Fluconazole doesn't require stopping oral contraceptives, ECG monitoring, blood pressure checks, or citrus restriction.
         </div>
       </div>
-    </div>
+    </div>`
+}
+];
 
-    <nav class="page-nav" aria-label="Topic navigation">
-      <a class="prev" href="torture-chamber.html"><span class="dir">&larr; Previous</span>The Torture Chamber</a>
-      <a class="next" href="index.html"><span class="dir">Back to</span>Home</a>
-    </nav>
-  </div>
+// ---- Shared interaction logic (used on the standalone NGN page too) ----
+function checkCloze(prefix){
+  ["d1","d2"].forEach(d => {
+    const sel = document.getElementById(prefix + "-" + d);
+    if(!sel) return;
+    sel.classList.remove("correct","incorrect");
+    if(sel.value === "correct") sel.classList.add("correct");
+    else if(sel.value === "wrong") sel.classList.add("incorrect");
+  });
+  const rat = document.getElementById(prefix + "-rationale");
+  if(rat) rat.classList.add("shown");
+}
 
-  <footer class="site-footer">
-    <div class="shell">Built from the NUR 326-201 lecture material &mdash; for personal study use.</div>
-  </footer>
-</main>
+function checkGrid(caseId){
+  document.querySelectorAll("#" + caseId + " .ngn-panel input").forEach(input => {
+    const label = input.closest(".ngn-option");
+    label.classList.remove("correct","incorrect","missed");
+    if(input.checked && input.value === "correct") label.classList.add("correct");
+    else if(input.checked && input.value === "wrong") label.classList.add("incorrect");
+    else if(!input.checked && input.value === "correct") label.classList.add("missed");
+  });
+  const rat = document.getElementById(caseId + "-rationale");
+  if(rat) rat.classList.add("shown");
+}
 
-<div class="search-overlay" id="search-overlay">
-  <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search the study guide..." autocomplete="off">
-    <div class="search-results" id="search-results"></div>
-  </div>
-</div>
-<script src="nav.js"></script>
-<script src="ngn-cases-data.js"></script>
-<script>
-bindNGNTabs(document);
-</script>
-</body>
-</html>
+// Binds tab-click behavior for any .ngn-case elements inside `container`.
+// Safe to call repeatedly on freshly-inserted DOM (e.g. after a quiz regenerate).
+function bindNGNTabs(container){
+  (container || document).querySelectorAll(".ngn-tab").forEach(tab => {
+    tab.addEventListener("click", () => {
+      const caseEl = tab.closest(".ngn-case");
+      caseEl.querySelectorAll(".ngn-tab").forEach(t => t.classList.remove("active"));
+      caseEl.querySelectorAll(".ngn-panel").forEach(p => p.classList.remove("active"));
+      tab.classList.add("active");
+      caseEl.querySelector("#" + tab.dataset.target).classList.add("active");
+    });
+  });
+}

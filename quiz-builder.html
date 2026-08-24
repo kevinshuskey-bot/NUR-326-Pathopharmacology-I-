@@ -106,11 +106,12 @@
     <div class="page-head">
       <div class="crumb"><a href="index.html">Exam Prep</a> / Quiz Builder</div>
       <h1>Build Your Own Exam</h1>
-      <p>Pick any combination of Week 1 topics, choose how many questions, and generate a custom practice quiz.</p>
+      <p>Pick any combination of Week 1 topics and question sources, choose how many multiple-choice questions you want, and generate a custom practice exam.</p>
     </div>
 
     <section class="section">
       <h2>Choose topics</h2>
+      <p class="lede">Standard multiple-choice questions, organized by lecture topic.</p>
       <div class="topic-picker" id="topic-picker">
         <label><input type="checkbox" value="principles" checked> Antimicrobial Principles</label>
         <label><input type="checkbox" value="cellwall" checked> Beta-Lactams &amp; Vancomycin</label>
@@ -119,15 +120,22 @@
         <label><input type="checkbox" value="hiv" checked> HIV</label>
       </div>
 
+      <h2 style="margin-top:32px;">Other question sources</h2>
+      <p class="lede">Optional add-ons &mdash; select either or both to include them alongside the topics above.</p>
+      <div class="topic-picker" id="source-picker">
+        <label><input type="checkbox" id="src-eaq" value="eaq" checked> Sherpath EAQ Questions <span style="color:var(--ink-faint); font-weight:400;">(19 questions)</span></label>
+        <label><input type="checkbox" id="src-ngn" value="ngn"> NGN Case Studies <span style="color:var(--ink-faint); font-weight:400;">(3 full cases, added in addition to your question count)</span></label>
+      </div>
+
       <div class="qb-controls">
-        <label for="qcount">Number of questions:</label>
+        <label for="qcount">Number of multiple-choice questions:</label>
         <select id="qcount">
           <option value="5">5</option>
           <option value="10" selected>10</option>
           <option value="15">15</option>
           <option value="9999">All available</option>
         </select>
-        <button class="btn" id="generate-btn">Generate quiz</button>
+        <button class="btn" id="generate-btn">Generate exam</button>
       </div>
 
       <div id="quiz-area"></div>
@@ -152,6 +160,7 @@
 </div>
 <script src="nav.js"></script>
 <script src="quiz-data.js"></script>
+<script src="ngn-cases-data.js"></script>
 <script>
 function shuffle(arr){
   const a = arr.slice();
@@ -164,24 +173,35 @@ function shuffle(arr){
 
 let score = 0, answered = 0, total = 0;
 
-function renderQuiz(questions){
+function renderQuiz(questions, includeNGN){
   const area = document.getElementById('quiz-area');
   score = 0; answered = 0; total = questions.length;
-  if(questions.length === 0){
-    area.innerHTML = '<p class="empty-note">No questions match those topics. Try selecting at least one.</p>';
+
+  if(questions.length === 0 && !includeNGN){
+    area.innerHTML = '<p class="empty-note">No questions match those selections. Try selecting at least one topic or source.</p>';
     return;
   }
-  let html = '<div id="quiz-score">Score: 0 / ' + total + '</div>';
-  questions.forEach((item, idx) => {
-    html += '<div class="q-card" data-qidx="'+idx+'">';
-    html += '<div class="q-num">Question '+(idx+1)+' of '+total+'</div>';
-    html += '<div class="q-prompt">'+item.q+'</div>';
-    item.options.forEach((opt, oidx) => {
-      html += '<button type="button" class="opt" data-oidx="'+oidx+'">'+opt+'</button>';
+
+  let html = '';
+  if(questions.length > 0){
+    html += '<div id="quiz-score">Score: 0 / ' + total + '</div>';
+    questions.forEach((item, idx) => {
+      html += '<div class="q-card" data-qidx="'+idx+'">';
+      html += '<div class="q-num">Question '+(idx+1)+' of '+total+(item.source === 'EAQ' ? ' &middot; Sherpath EAQ' : '')+'</div>';
+      html += '<div class="q-prompt">'+item.q+'</div>';
+      item.options.forEach((opt, oidx) => {
+        html += '<button type="button" class="opt" data-oidx="'+oidx+'">'+opt+'</button>';
+      });
+      html += '<div class="explain" id="explain-'+idx+'">'+item.explain+'</div>';
+      html += '</div>';
     });
-    html += '<div class="explain" id="explain-'+idx+'">'+item.explain+'</div>';
-    html += '</div>';
-  });
+  }
+
+  if(includeNGN){
+    html += '<h2 style="margin-top:36px;">NGN Case Studies</h2>';
+    NGN_CASES.forEach(c => { html += c.html; });
+  }
+
   area.innerHTML = html;
 
   questions.forEach((item, idx) => {
@@ -203,14 +223,22 @@ function renderQuiz(questions){
       });
     });
   });
+
+  if(includeNGN) bindNGNTabs(area);
 }
 
 document.getElementById('generate-btn').addEventListener('click', () => {
-  const checked = Array.from(document.querySelectorAll('#topic-picker input:checked')).map(cb => cb.value);
+  const checkedTopics = Array.from(document.querySelectorAll('#topic-picker input:checked')).map(cb => cb.value);
+  const eaqChecked = document.getElementById('src-eaq').checked;
+  const ngnChecked = document.getElementById('src-ngn').checked;
   const count = parseInt(document.getElementById('qcount').value, 10);
-  const pool = QUESTION_BANK.filter(q => checked.includes(q.topic));
+
+  const pool = QUESTION_BANK.filter(q =>
+    (checkedTopics.includes(q.topic) && q.source !== 'EAQ') ||
+    (eaqChecked && q.source === 'EAQ')
+  );
   const chosen = shuffle(pool).slice(0, count);
-  renderQuiz(chosen);
+  renderQuiz(chosen, ngnChecked);
   document.getElementById('quiz-area').scrollIntoView({behavior:'smooth', block:'start'});
 });
 
